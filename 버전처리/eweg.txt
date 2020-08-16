@@ -1,0 +1,1 @@
+anaconda3\envs\trading\python.exe C:\Users\CC\Desktop\python\tt\kiwoomtrading\connect\VersionUpdate\checker.py
