@@ -1,0 +1,374 @@
+2020-08-19 10:12:20 : KOAStiudio Start 
+2020-08-19 10:12:23 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 10:12:25 : KOA StudioSA ver 2.20 is checked...1 secs 
+2020-08-19 10:12:28 : 파일(F) -> Open API 실행 
+2020-08-19 10:18:05 :  start.txt - Windows 메모장 checking start 
+2020-08-19 10:18:06 : start.txt - Windows 메모장 is checked...0 secs 
+2020-08-19 10:18:17 :  start.txt - Windows 메모장 checking start 
+2020-08-19 10:18:18 : start.txt - Windows 메모장 is checked...0 secs 
+2020-08-19 10:20:11 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:12 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:13 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:14 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:15 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:16 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:17 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:18 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:19 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:20 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:21 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:22 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:23 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:24 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:25 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:26 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:27 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:28 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:29 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:30 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:31 : start.txt - Windows 메모장find... 
+2020-08-19 10:20:32 : start.txt - Windows 메모장find... 
+2020-08-19 13:59:20 : KOAStiudio Start 
+2020-08-19 14:00:38 : KOAStiudio Start 
+2020-08-19 14:00:39 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:00:40 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 14:00:43 : 파일(F) -> Open API 실행 
+2020-08-19 14:00:44 :  Open API Login checking start 
+2020-08-19 14:00:45 : Open API Login is checked...0 secs 
+2020-08-19 14:00:47 :  input password 
+2020-08-19 14:00:47 : Open API Login <input> find... 
+2020-08-19 14:00:47 : Open API Login <input>  item find... 
+2020-08-19 14:00:49 :  click Login Button 
+2020-08-19 14:00:49 : Open API Login <click_item> find... 
+2020-08-19 14:00:49 : Open API Login <click_item>  item find... 
+2020-08-19 14:00:53 : login 실행 
+2020-08-19 14:01:08 :  version checking.... 
+2020-08-19 14:01:08 :  version checking start 
+2020-08-19 14:01:08 :  Open API Login checking start 
+2020-08-19 14:01:09 : Open API Login is checked...0 secs 
+2020-08-19 14:01:10 :  opstarter checking start 
+2020-08-19 14:01:15 : opstarter is checking ...  
+2020-08-19 14:01:15 : opstarter is not existed 
+2020-08-19 14:01:16 :  opversionup checking start 
+2020-08-19 14:01:21 : opversionup is checking ...  
+2020-08-19 14:01:21 : opversionup is not existed 
+2020-08-19 14:01:22 :  Open API checking start 
+2020-08-19 14:01:27 : Open API is checking ...  
+2020-08-19 14:01:27 : Open API is not existed 
+2020-08-19 14:01:27 :  Open API Login checking start 
+2020-08-19 14:01:28 : Open API Login is checked...0 secs 
+2020-08-19 14:01:29 :  opstarter checking start 
+2020-08-19 14:01:30 : opstarter is checked...0 secs 
+2020-08-19 14:01:30 : opstarter is checking ...  
+2020-08-19 14:01:30 : opstarter find... 
+2020-08-19 14:01:30 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:01:31 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 14:01:31 : opstarter <click_item> find... 
+2020-08-19 14:01:31 : opstarter <click_item>  item find... 
+2020-08-19 14:01:44 :  opversionup checking start 
+2020-08-19 14:01:49 : opversionup is checking ...  
+2020-08-19 14:01:49 : opversionup is not existed 
+2020-08-19 14:01:50 :  Open API checking start 
+2020-08-19 14:01:55 : Open API is checking ...  
+2020-08-19 14:01:55 : Open API is not existed 
+2020-08-19 14:01:55 :  Open API Login checking start 
+2020-08-19 14:01:56 : Open API Login is checked...0 secs 
+2020-08-19 14:01:57 :  opstarter checking start 
+2020-08-19 14:01:58 : opstarter is checked...0 secs 
+2020-08-19 14:01:58 : opstarter is checking ...  
+2020-08-19 14:01:58 : opstarter find... 
+2020-08-19 14:01:58 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:02:08 : opstarter <click_item> find... 
+2020-08-19 14:02:08 : opstarter <click_item>  item find... 
+2020-08-19 14:02:22 :  opversionup checking start 
+2020-08-19 14:02:27 : opversionup is checking ...  
+2020-08-19 14:02:27 : opversionup is not existed 
+2020-08-19 14:02:28 :  Open API checking start 
+2020-08-19 14:02:33 : Open API is checking ...  
+2020-08-19 14:02:33 : Open API is not existed 
+2020-08-19 14:02:33 :  Open API Login checking start 
+2020-08-19 14:02:38 : API is not found 
+2020-08-19 14:02:38 :  업그레이드 확인 checking start 
+2020-08-19 14:02:39 : 업그레이드 확인 is checked...0 secs 
+2020-08-19 14:02:39 : 업그레이드 확인 is checking ...  
+2020-08-19 14:02:39 : 업그레이드 확인 find... 
+2020-08-19 14:02:39 : 업그레이드 확인 <click_item> find... 
+2020-08-19 14:02:39 : 업그레이드 확인 <click_item>  item find... 
+2020-08-19 14:02:41 :  Open API Login checking start 
+2020-08-19 14:02:46 : API is not found 
+2020-08-19 14:02:46 :  업그레이드 확인 checking start 
+2020-08-19 14:02:51 : 업그레이드 확인 is checking ...  
+2020-08-19 14:02:51 : 업그레이드 확인 is not found 
+2020-08-19 14:02:51 : end 
+2020-08-19 14:02:51 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:03:01 : Version Update 완료 
+2020-08-19 14:22:58 : KOAStiudio Start 
+2020-08-19 14:23:00 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:23:01 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 14:23:04 : 파일(F) -> Open API 실행 
+2020-08-19 14:23:05 :  Open API Login checking start 
+2020-08-19 14:23:06 : Open API Login is checked...0 secs 
+2020-08-19 14:23:08 :  input password 
+2020-08-19 14:23:08 : Open API Login <input> find... 
+2020-08-19 14:23:08 : Open API Login <input>  item find... 
+2020-08-19 14:23:10 :  click Login Button 
+2020-08-19 14:23:10 : Open API Login <click_item> find... 
+2020-08-19 14:23:10 : Open API Login <click_item>  item find... 
+2020-08-19 14:23:13 : login 실행 
+2020-08-19 14:23:28 :  version checking.... 
+2020-08-19 14:23:28 :  version checking start 
+2020-08-19 14:23:28 :  Open API Login checking start 
+2020-08-19 14:23:29 : Open API Login is checked...0 secs 
+2020-08-19 14:23:30 :  opstarter checking start 
+2020-08-19 14:23:35 : opstarter is checking ...  
+2020-08-19 14:23:35 : opstarter is not existed 
+2020-08-19 14:23:36 :  opversionup checking start 
+2020-08-19 14:23:41 : opversionup is checking ...  
+2020-08-19 14:23:41 : opversionup is not existed 
+2020-08-19 14:23:42 :  Open API checking start 
+2020-08-19 14:23:47 : Open API is checking ...  
+2020-08-19 14:23:47 : Open API is not existed 
+2020-08-19 14:23:47 :  Open API Login checking start 
+2020-08-19 14:23:48 : Open API Login is checked...0 secs 
+2020-08-19 14:23:49 :  opstarter checking start 
+2020-08-19 14:23:50 : opstarter is checked...0 secs 
+2020-08-19 14:23:50 : opstarter is checking ...  
+2020-08-19 14:23:50 : opstarter find... 
+2020-08-19 14:23:50 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:23:51 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 14:23:53 : opstarter <click_item> find... 
+2020-08-19 14:23:53 : opstarter <click_item>  item find... 
+2020-08-19 14:24:07 :  opversionup checking start 
+2020-08-19 14:24:12 : opversionup is checking ...  
+2020-08-19 14:24:12 : opversionup is not existed 
+2020-08-19 14:24:13 :  Open API checking start 
+2020-08-19 14:24:18 : Open API is checking ...  
+2020-08-19 14:24:18 : Open API is not existed 
+2020-08-19 14:24:18 :  Open API Login checking start 
+2020-08-19 14:24:23 : API is not found 
+2020-08-19 14:24:23 :  업그레이드 확인 checking start 
+2020-08-19 14:24:24 : 업그레이드 확인 is checked...0 secs 
+2020-08-19 14:24:24 : 업그레이드 확인 is checking ...  
+2020-08-19 14:24:24 : 업그레이드 확인 find... 
+2020-08-19 14:24:24 : 업그레이드 확인 <click_item> find... 
+2020-08-19 14:24:24 : 업그레이드 확인 <click_item>  item find... 
+2020-08-19 14:24:26 :  Open API Login checking start 
+2020-08-19 14:24:31 : API is not found 
+2020-08-19 14:24:31 :  업그레이드 확인 checking start 
+2020-08-19 14:24:36 : 업그레이드 확인 is checking ...  
+2020-08-19 14:24:36 : 업그레이드 확인 is not found 
+2020-08-19 14:24:36 : end 
+2020-08-19 14:24:36 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:24:46 : Version Update 완료 
+2020-08-19 14:53:07 : KOAStiudio Start 
+2020-08-19 14:53:08 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:53:09 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 14:53:12 : 파일(F) -> Open API 실행 
+2020-08-19 14:53:13 :  Open API Login checking start 
+2020-08-19 14:53:14 : Open API Login is checked...0 secs 
+2020-08-19 14:53:16 :  input password 
+2020-08-19 14:53:16 : Open API Login <input> find... 
+2020-08-19 14:53:16 : Open API Login <input>  item find... 
+2020-08-19 14:53:18 :  click Login Button 
+2020-08-19 14:53:18 : Open API Login <click_item> find... 
+2020-08-19 14:53:18 : Open API Login <click_item>  item find... 
+2020-08-19 14:53:21 : login 실행 
+2020-08-19 14:53:36 :  version checking.... 
+2020-08-19 14:53:36 :  version checking start 
+2020-08-19 14:53:36 :  Open API Login checking start 
+2020-08-19 14:53:41 : API is not found 
+2020-08-19 14:53:41 :  업그레이드 확인 checking start 
+2020-08-19 14:53:46 : 업그레이드 확인 is checking ...  
+2020-08-19 14:53:46 : 업그레이드 확인 is not found 
+2020-08-19 14:53:46 : end 
+2020-08-19 14:53:46 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 14:53:47 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 14:53:47 : KOA StudioSA ver 2.20find... 
+2020-08-19 14:53:49 : KOA StudioSA ver 2.20 is closed.. 
+2020-08-19 14:53:49 : Version Update 완료 
+2020-08-19 15:03:30 : KOAStiudio Start 
+2020-08-19 15:03:31 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 15:03:32 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 15:03:35 : 파일(F) -> Open API 실행 
+2020-08-19 15:03:36 :  Open API Login checking start 
+2020-08-19 15:03:37 : Open API Login is checked...0 secs 
+2020-08-19 15:03:39 :  input password 
+2020-08-19 15:03:39 : Open API Login <input> find... 
+2020-08-19 15:03:39 : Open API Login <input>  item find... 
+2020-08-19 15:03:41 :  click Login Button 
+2020-08-19 15:03:41 : Open API Login <click_item> find... 
+2020-08-19 15:03:41 : Open API Login <click_item>  item find... 
+2020-08-19 15:03:45 : login 실행 
+2020-08-19 15:08:44 : API start 
+2020-08-19 15:09:37 : API start 
+2020-08-19 15:09:41 : login Success 
+2020-08-19 15:10:02 : KOAStiudio Start 
+2020-08-19 15:10:03 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 15:10:04 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 15:10:07 : 파일(F) -> Open API 실행 
+2020-08-19 15:10:08 :  Open API Login checking start 
+2020-08-19 15:10:09 : Open API Login is checked...0 secs 
+2020-08-19 15:10:11 :  input password 
+2020-08-19 15:10:11 : Open API Login <input> find... 
+2020-08-19 15:10:11 : Open API Login <input>  item find... 
+2020-08-19 15:10:13 :  click Login Button 
+2020-08-19 15:10:13 : Open API Login <click_item> find... 
+2020-08-19 15:10:13 : Open API Login <click_item>  item find... 
+2020-08-19 15:10:16 : login 실행 
+2020-08-19 15:10:31 :  version checking.... 
+2020-08-19 15:10:31 :  version checking start 
+2020-08-19 15:10:31 :  Open API Login checking start 
+2020-08-19 15:10:36 : API is not found 
+2020-08-19 15:10:36 :  업그레이드 확인 checking start 
+2020-08-19 15:10:41 : 업그레이드 확인 is checking ...  
+2020-08-19 15:10:41 : 업그레이드 확인 is not found 
+2020-08-19 15:10:41 : end 
+2020-08-19 15:10:41 :  KOA StudioSA ver 2.20 checking start 
+2020-08-19 15:10:42 : KOA StudioSA ver 2.20 is checked...0 secs 
+2020-08-19 15:10:42 : KOA StudioSA ver 2.20find... 
+2020-08-19 15:10:44 : KOA StudioSA ver 2.20 is closed.. 
+2020-08-19 15:10:44 : Version Update 완료 
+2020-08-19 15:10:55 : API start 
+2020-08-19 15:10:59 : login Success 
+2020-08-19 15:18:24 : API start 
+2020-08-19 15:18:27 : Login Success 
+2020-08-19 15:19:55 : API start 
+2020-08-19 15:23:33 : API start 
+2020-08-19 15:23:36 : Login Success 
+2020-08-19 15:26:09 : API start 
+2020-08-19 15:26:13 : Login Success 
+2020-08-19 15:27:43 : API start 
+2020-08-19 15:28:14 : API start 
+2020-08-19 15:28:18 : Login Success 
+2020-08-19 15:51:34 : API start 
+2020-08-19 15:51:37 : Login Success 
+2020-08-19 15:53:05 : API start 
+2020-08-19 15:53:09 : Login Success 
+2020-08-19 15:54:11 : API start 
+2020-08-19 15:54:15 : Login Success 
+2020-08-19 15:55:05 : API start 
+2020-08-19 15:55:09 : Login Success 
+2020-08-19 15:58:04 : API start 
+2020-08-19 15:58:07 : Login Success 
+2020-08-19 16:02:22 : API start 
+2020-08-19 16:02:25 : Login Success 
+2020-08-19 16:33:27 : API start 
+2020-08-19 16:33:31 : Login Success 
+2020-08-19 16:36:13 : API start 
+2020-08-19 16:36:16 : Login Success 
+2020-08-19 16:37:42 : API start 
+2020-08-19 16:37:45 : Login Success 
+2020-08-19 16:38:10 : API start 
+2020-08-19 16:38:16 : Login Success 
+2020-08-19 16:40:29 : API start 
+2020-08-19 16:40:33 : Login Success 
+2020-08-19 16:40:49 : API start 
+2020-08-19 16:40:52 : Login Success 
+2020-08-19 16:41:03 : API start 
+2020-08-19 16:41:07 : Login Success 
+2020-08-19 16:41:23 : API start 
+2020-08-19 16:41:27 : Login Success 
+2020-08-19 16:42:54 : API start 
+2020-08-19 16:42:58 : Login Success 
+2020-08-19 16:43:40 : API start 
+2020-08-19 16:43:43 : Login Success 
+2020-08-19 16:43:58 : API start 
+2020-08-19 16:44:01 : Login Success 
+2020-08-19 16:55:29 : API start 
+2020-08-19 16:55:34 : Login Success 
+2020-08-19 16:55:47 : API start 
+2020-08-19 16:55:51 : Login Success 
+2020-08-19 16:56:34 : API start 
+2020-08-19 16:56:38 : Login Success 
+2020-08-19 16:57:13 : API start 
+2020-08-19 16:57:16 : Login Success 
+2020-08-19 16:57:44 : API start 
+2020-08-19 16:57:48 : Login Success 
+2020-08-19 17:01:40 : API start 
+2020-08-19 17:01:44 : Login Success 
+2020-08-19 17:01:57 : API start 
+2020-08-19 17:02:00 : Login Success 
+2020-08-19 17:02:29 : API start 
+2020-08-19 17:02:32 : Login Success 
+2020-08-19 17:02:53 : API start 
+2020-08-19 17:02:57 : Login Success 
+2020-08-19 17:15:27 : API start 
+2020-08-19 17:15:31 : Login Success 
+2020-08-19 17:16:30 : API start 
+2020-08-19 17:16:33 : Login Success 
+2020-08-19 17:17:25 : API start 
+2020-08-19 17:17:29 : Login Success 
+2020-08-19 17:17:33 : API start 
+2020-08-19 17:17:37 : Login Success 
+2020-08-19 17:19:20 : API start 
+2020-08-19 17:19:25 : Login Success 
+2020-08-19 17:20:19 : API start 
+2020-08-19 17:20:29 : Login Success 
+2020-08-19 17:21:23 : API start 
+2020-08-19 17:21:27 : Login Success 
+2020-08-19 17:23:04 : API start 
+2020-08-19 17:23:08 : Login Success 
+2020-08-19 17:24:25 : API start 
+2020-08-19 17:24:29 : Login Success 
+2020-08-19 17:24:53 : API start 
+2020-08-19 17:24:57 : Login Success 
+2020-08-19 17:26:10 : API start 
+2020-08-19 17:26:14 : Login Success 
+2020-08-19 17:26:27 : API start 
+2020-08-19 17:26:30 : Login Success 
+2020-08-19 17:27:01 : API start 
+2020-08-19 17:27:05 : Login Success 
+2020-08-19 17:28:31 : API start 
+2020-08-19 17:28:55 : Login Fail 
+2020-08-19 17:28:55 : Login Fail 
+2020-08-19 17:28:56 : Login Fail 
+2020-08-19 17:29:13 : API start 
+2020-08-19 17:29:24 : Login Success 
+2020-08-19 17:29:40 : API start 
+2020-08-19 17:55:25 : API start 
+2020-08-19 17:55:29 : Login Success 
+2020-08-19 17:56:03 : API start 
+2020-08-19 17:56:08 : Login Success 
+2020-08-19 17:56:45 : API start 
+2020-08-19 17:56:58 : API start 
+2020-08-19 17:57:01 : Login Success 
+2020-08-19 17:57:48 : API start 
+2020-08-19 17:57:54 : Login Success 
+2020-08-19 17:59:04 : API start 
+2020-08-19 17:59:08 : Login Success 
+2020-08-19 17:59:39 : API start 
+2020-08-19 17:59:43 : Login Success 
+2020-08-19 18:00:22 : API start 
+2020-08-19 18:00:26 : Login Success 
+2020-08-19 18:00:35 : API start 
+2020-08-19 18:00:38 : Login Success 
+2020-08-19 18:01:00 : API start 
+2020-08-19 18:01:03 : Login Success 
+2020-08-19 18:03:07 : API start 
+2020-08-19 18:03:11 : Login Success 
+2020-08-19 18:03:17 : API start 
+2020-08-19 18:03:21 : Login Success 
+2020-08-19 18:03:28 : API start 
+2020-08-19 18:03:32 : Login Success 
+2020-08-19 18:03:43 : API start 
+2020-08-19 18:03:47 : Login Success 
+2020-08-19 18:04:14 : API start 
+2020-08-19 18:04:18 : Login Success 
+2020-08-19 18:04:55 : API start 
+2020-08-19 18:04:59 : Login Success 
+2020-08-19 18:05:50 : API start 
+2020-08-19 18:05:54 : Login Success 
+2020-08-19 18:07:59 : API start 
+2020-08-19 18:08:03 : Login Success 
+2020-08-19 18:08:34 : API start 
+2020-08-19 18:08:38 : Login Success 
+2020-08-19 18:09:00 : API start 
+2020-08-19 18:09:04 : Login Success 
+2020-08-19 18:10:16 : API start 
+2020-08-19 18:10:20 : Login Success 
+2020-08-19 18:10:31 : API start 
+2020-08-19 18:10:35 : Login Success 
+2020-08-19 18:20:15 : API start 
+2020-08-19 18:20:19 : Login Success 
+2020-08-19 18:21:26 : API start 
+2020-08-19 18:21:30 : Login Success 
