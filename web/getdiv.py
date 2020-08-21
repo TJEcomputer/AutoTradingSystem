@@ -83,16 +83,19 @@ def get_data(code):
             for i in range(len(tt)):
                 chch = str(tt[i].get_text()).strip()
                 lplp.append(chch)
+            if lplp:
 
-            for i in range(1,10):
-
-                lplp1 = lplp[:7]
-                del lplp[0:7]
-                # 기존에 저장되어 있는 데이터셋에 데이터가 없으면 기록
-                if str(lplp1[0]) in date_data:
-                    print("데이터가 있습니다.")
-                else:
-                    csvcsv.csv_writer_a(code+".csv",lplp1)
+                for i in range(1,10):
+                    try:
+                        lplp1 = lplp[:7]
+                        del lplp[0:7]
+                        # 기존에 저장되어 있는 데이터셋에 데이터가 없으면 기록
+                        if str(lplp1[0]) in date_data:
+                            print("데이터가 있습니다.")
+                        else:
+                            csvcsv.csv_writer_a(code+".csv",lplp1)
+                    except:
+                        print(str(code) + " -> 오류 발생")
     nt_st = start.strftime("%H:%M:%S")
     logger.info(code + " 완료 " + nt_st)
 
