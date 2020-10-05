@@ -17,9 +17,16 @@
 
 ---
 ##### 최신 진행 상황
-
+---
 #### LSTM을 이용한 삼성 주가데이터의  예측
+---
 ![samsungtest](https://user-images.githubusercontent.com/71945157/95051761-bfa0ba00-0728-11eb-99e0-ae89d5641db6.png)
+---
+#### Talib을 이용한 보조지표 생성
+---
+![talib](https://user-images.githubusercontent.com/71945157/95061526-aacb2300-0736-11eb-8bbb-2c5306bed31f.png)
+
+
 ---
 ##### 이전 진행 상황
 ---
