@@ -1,4 +1,5 @@
 #### 더조은 컴퓨터 아카데미 '딥러닝을 이용한 주식 자동매매 프로젝트'입니다.
+----
 ![pic1](https://user-images.githubusercontent.com/71945157/95052964-b7e21500-072a-11eb-80a1-8fd45293c0b0.png)
 ---
 ###### 주식시장에서 개인, 기관, 외인 수익률의 격차를 줄이고 감정을 배제한 완벽한 시스템 트레이딩을 위해 고안된 프로젝트 입니다.
@@ -21,12 +22,14 @@
 ![samsungtest](https://user-images.githubusercontent.com/71945157/95051761-bfa0ba00-0728-11eb-99e0-ae89d5641db6.png)
 ---
 ##### 이전 진행 상황
-
+---
 #### invest.com의 금융 뉴스기사 크롤링
+---
 ![data1](https://user-images.githubusercontent.com/71945157/95054321-ae59ac80-072c-11eb-8dca-8ebd2b473127.png)
 
 ---
 #### financedatareader open source package를 이용한 주가데이터,환율,코스피지수등의 데이터 수집
+---
 ![data2](https://user-images.githubusercontent.com/71945157/95054506-ed87fd80-072c-11eb-88fb-2b2935465815.png)
 ---
 
