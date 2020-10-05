@@ -1,16 +1,14 @@
-### Hi there 👋
+###### 더조은 컴퓨터 아카데미 '딥러닝을 이용한 주식 자동매매 프로젝트'입니다.
+---
+##### 현재 진행상황
+###### 데이터 수집(크롤링을 통한 뉴스기사, financedatareader를 이용한 주가데이터) --완료
+###### API를 이용한 로그인/주문/잔고확인 기능 --완료
+###### 주가데이터와 뉴스데이터를 데이터베이스에 저장 --완료
+###### 누적된 데이터를 이용해 모델 학습 --진행중
 
-<!--
-**TJEcomputer/TJEcomputer** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+---
+##### 최신 진행 상황
 
-Here are some ideas to get you started:
+#### LSTM을 이용한 삼성 주가데이터의  예측
+![samsungtest](https://user-images.githubusercontent.com/71945157/95051761-bfa0ba00-0728-11eb-99e0-ae89d5641db6.png)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
