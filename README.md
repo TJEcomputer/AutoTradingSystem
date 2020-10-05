@@ -27,3 +27,5 @@
 
 ---
 #### financedatareader open source package를 이용한 주가데이터,환율,코스피지수등의 데이터 수집
+![data2](https://user-images.githubusercontent.com/71945157/95054506-ed87fd80-072c-11eb-88fb-2b2935465815.png)
+---
