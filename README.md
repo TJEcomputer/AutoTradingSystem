@@ -9,5 +9,6 @@
 ---
 ##### 최신 진행 상황
 
-
+#### LSTM을 이용한 삼성 주가데이터의  예측
+![samsungtest](https://user-images.githubusercontent.com/71945157/95051761-bfa0ba00-0728-11eb-99e0-ae89d5641db6.png)
 
