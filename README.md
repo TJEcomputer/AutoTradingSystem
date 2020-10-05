@@ -34,12 +34,15 @@
 #### 대신증권 API CYBOS Plus 를 이용한 과거 분단위 주식데이터 수집
 ---
 - API 접속
+
 ![Cap 2020-10-05 17-02-27-126](https://user-images.githubusercontent.com/69662531/95057062-92f0a080-0730-11eb-8dfe-0326433438ac.jpg)
 
 - 소스코드 
+
 ![Cap 2020-10-05 17-09-09-496](https://user-images.githubusercontent.com/69662531/95057190-c4696c00-0730-11eb-8afa-80a99940b2ab.png)
 
 - 데이터 수집
+
 ![Cap 2020-10-05 17-06-29-139](https://user-images.githubusercontent.com/69662531/95057264-da772c80-0730-11eb-869c-1c4afcf126a7.png)
 
 - 로컬 저장소에 .csv 파일로 저장
