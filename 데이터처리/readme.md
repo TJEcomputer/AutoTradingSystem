@@ -11,4 +11,8 @@ def transform_datetype(df):
     df['date'] = pd.to_datetime(df['date'])
     return df
 ```
+## 2. Index에 날짜 데이터 반영
 
+```python
+df = df.set_index(df['date'])
+```
