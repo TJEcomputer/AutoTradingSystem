@@ -1,0 +1,20 @@
+import investpy as ip
+import matplotlib.pyplot as plt
+import mpl_finance
+
+# df = ip.get_stock_historical_data(stock='005930', country='South Korea', datetime = '15/10/2020')
+df = ip.get_stock_recent_data(stock='009830',
+                                    country='South Korea')
+
+#df.to_csv(
+ #   'd:/big11/investtoday2.csv'
+  #  ,sep =','
+#)
+df1 = df[df['Volume']>0]
+fig= plt.figure(figsize=(12,8))
+
+ax = fig.add_subplot(111)
+
+mpl_finance.candlestick2_ohlc(ax, df1['Open'], df1['High'], df1['Low'], df1['Close'], width=0.5, colorup='r', colordown='b')
+
+plt.show()
