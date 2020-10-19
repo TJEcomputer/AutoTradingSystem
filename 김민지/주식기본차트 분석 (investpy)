@@ -1,0 +1,66 @@
+# step1
+import investpy as ip
+
+df = ip.get_stock_historical_data(stock='009830',
+                                    country='South Korea', from_date ='23/08/2011', to_date = '18/10/2020')
+
+
+
+df.to_csv(
+   'd:/big11/pj/investSAMSUNG1.csv'
+    ,sep =',')
+
+# stpe2
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import mpl_finance
+
+stock = pd.read_csv('d:/big11/pj/investSAMSUNG1.csv')
+
+stock['Date'] = stock.Date.apply(pd.to_datetime)
+
+stock['year'] = stock.Date.apply(lambda x:x.year)
+stock['month'] = stock.Date.apply(lambda x:x.month)
+stock['day'] = stock.Date.apply(lambda x:x.day)
+
+
+print(stock)
+
+stock.to_csv('d:/big11/pj/investdatetime.csv',sep = ',')
+
+# step3 
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+stock1 = pd.read_csv('d:/big11/pj/investdatetime.csv')
+
+stock1.set_index('Date', inplace=True)
+
+stock2 = stock1.drop('Unnamed: 0', axis=1)
+
+
+stock2['label'] = stock2['Close'].shift(-1)
+
+
+fig= plt.figure(figsize=(12,8))
+#plt.plot(stock2.index, stock2['Close'], color='lightblue') # 종가기준 그래프
+#plt.xticks(rotation=75)
+
+# 이동평균
+stock2['ma5_s'] = (stock2['Close'] + stock2['Close'].shift(1)+ stock2['Close'].shift(2)+ stock2['Close'].shift(3)+ stock2['Close'].shift(4)+ stock2['Close'].shift(5))/5
+stock2['ma20'] =stock2['Close'].rolling(20).mean()
+stock2['ma60'] =stock2['Close'].rolling(60).mean()
+#print(stock2.head(10))
+
+#fig= plt.figure(figsize=(12,8))
+plt.plot(stock2.index , stock2['Close'], color='blue', label='price')
+plt.plot(stock2.index , stock2['ma5_s'], color='green', label='ma5')
+plt.plot(stock2.index , stock2['ma20'], color='red', label='ma20')
+plt.plot(stock2.index , stock2['ma60'], color='orange', label='ma60')
+plt.legend()
+plt.show()
+
