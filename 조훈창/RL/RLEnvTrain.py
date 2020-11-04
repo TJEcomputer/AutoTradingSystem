@@ -68,9 +68,10 @@ class RLEnv:
 
 
     def validation_(self,action,quant,price):
-        if action==1 and  (quant * price) > self.cash:
+        profit_charged = self.profit(action,price,quant)
+        if action==1 and  (profit_charged > self.cash or quant <=0):
             return False
-        elif action==2 and quant > self.total_stock:
+        elif action==2 and (quant > self.total_stock or quant <=0):
             return False
 
         return True
@@ -78,6 +79,7 @@ class RLEnv:
     def profit(self,action,cu_price,quant):
         profit = int(cu_price) * quant
         charge = 0
+        profit_charged = 0
         additional_charge = 0
         tax = 0.25
         if profit <= 200000:

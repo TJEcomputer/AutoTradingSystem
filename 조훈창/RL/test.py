@@ -4,9 +4,7 @@ from tensorflow.python.client import device_lib
 from tensorflow import keras
 import pandas as pd
 df = pd.read_csv('.\\DB\\CSV\\daily\\DA000020_ch.csv')
-print(df)
 df['volume'].replace(0,method='ffill',inplace=True)
-print(df.head(50))
 #data = df.iloc[0].values.reshape(1,-1)
 
 
@@ -32,3 +30,4 @@ def get_obs(df_prev,obs):
     return obs, df_prev
 
 df = add_feature(df)
+tt = np.array([[1,2,3],[4,5,6],[7,8,9],[22,33,44]])
