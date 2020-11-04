@@ -23,12 +23,12 @@ class RLEnv:
         self.reward =0
         return self.obs()
 
-
+    # 실제 환경과 테스트환경 분리
     def obs(self):
         obs = None
         if self.iloc < len(self.df):
             obs = self.df.iloc[self.iloc].values
-            obs[-1] = self.reward
+            obs[9] = self.reward
         return obs
 
     def next_step(self,action,quant):
