@@ -85,13 +85,16 @@ class DataPreProcessing:
         df_bean = pd.DataFrame(datetime,columns=['date','time'])
         return df_bean
 
-    def train_test_split(self,df,day=252,year=1,test_len=4):
-
+    def train_test_split(self,code,day=252,year=1,test_len=4,category='d'):
+        if category == 'm':
+            day = day * 390
+        df = self.change_csv(code, category=category)
         df_obs = df.iloc[119:, :].copy()
         df_obs = df_obs.reset_index()
         df_obs = df_obs.drop(['index'], axis=1)
         df_train = df_obs.iloc[-1*day*(year*test_len):-1*day*year].copy()
         df_train.reset_index(drop=True,inplace=True)
+        print(df_train)
         df_test = df_obs.iloc[-1*day*year:].copy()
         df_test.reset_index(drop=True,inplace=True)
         return df_train,df_test
@@ -110,9 +113,9 @@ class DataPreProcessing:
 
         return data
 
-if __name__ == '__main__':
-    pre = DataPreProcessing()
-    code = 'A000020'
-    pre.change_csv(code,category='m')
-    df = pd.read_csv('.\\DB\\CSV\\min\\A000020.csv')
-    pre.train_test_split(df)
+# if __name__ == '__main__':
+#     pre = DataPreProcessing()
+#     code = 'A000020'
+#     pre.change_csv(code,category='m')
+#     df = pd.read_csv('.\\DB\\CSV\\min\\A000020.csv')
+#     pre.train_test_split(df)

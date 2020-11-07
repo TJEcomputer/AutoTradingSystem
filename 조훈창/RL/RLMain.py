@@ -9,7 +9,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 pre = DataPreProcessing.DataPreProcessing()
 code = 'A035720'
 df = pre.change_csv(code,category='d')
-df_train,df_test = pre.train_test_split(df)
+df_train,df_test = pre.train_test_split(code,category='d')
 
 
 step = len(df_train)
@@ -20,7 +20,7 @@ agent = RLAgent.Agent(gamma = 0.98,
                       eps_decay_steps = 800,
                       eps_exponential_decay = 0.99,
                       replay_capacity = int(1e6),
-                      batch_size=step,
+                      batch_size=step-1,
                       tau = 10,
                       code = code,
                       V_nn='DNN',
@@ -75,7 +75,8 @@ for k in range(100):
 
 
         next_obs, reward, done, info = env.next_step(action, quant)
-
+        if done:
+            break
         data = next_obs.reshape(1, -1)
         data = pd.DataFrame(data, columns=df_prev.columns)
         df_prev = pd.concat([df_prev, data], ignore_index=True)
@@ -92,8 +93,7 @@ for k in range(100):
         sub_quant_list.append(quant)
         obs = next_obs
 
-        if done:
-            break
+
 
 
     # experience 초기화
