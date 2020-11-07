@@ -4,25 +4,23 @@ import time
 import os
 
 class Log:
-    def __init__(self,name):
-        self.name = name
+    def __init__(self):
         self.start = time.time()
         dir = ['full','DL','ML','RL','API']
         for i in dir:
             path = '.\\log\\'
             if not os.path.exists(path + i):
                 os.makedirs(path+i)
-    def dir_recorder(self,name=None):
+    def dir_recorder(self,logname=None,name='default'):
         dt = datetime.datetime.now()
-        loggername=self.name
         nowdate = dt.strftime('%Y%m%d')
         path = '.\\log\\full\\'
-        if path is not None:
-            path = '.\\log\\' + name +'\\'
+        if logname is not None:
+            path = '.\\log\\' + logname +'\\'
         log_filename='{}.log'.format(nowdate)
         full_path = path + log_filename
 
-        logger_dir = logging.getLogger(loggername)
+        logger_dir = logging.getLogger(name)
         logger_dir.setLevel(logging.INFO)
         formatter = logging.Formatter("%(asctime)s : %(message)s ", "%Y-%m-%d %H:%M:%S")
 

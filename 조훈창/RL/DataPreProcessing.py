@@ -10,7 +10,7 @@ class DataPreProcessing:
         # 필요 변수 선언
         self.name = 'DataPreProcessing'
         self.path = path
-        self.logging = log_recorder.Log('DataProcess')
+        self.logging = log_recorder.Log()
 
         # DataPreProcessing 클래스 객체 생성시 필요한 폴더 생성
         self.mkdir = self.make_dir(path)

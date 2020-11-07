@@ -50,6 +50,8 @@ class RLEnv:
             self.cash -= int(profit_charged)
 
         if action == 2:
+            if quant > self.total_stock:
+                quant = self.total_stock
             self.total_stock += -1 * quant
             self.stock_list.append([-1 * quant, cu_price])
             profit_charged = self.profit(action,cu_price, quant)
@@ -73,9 +75,6 @@ class RLEnv:
             return False
         if action==1:
             if (profit_charged > self.cash):
-                return False
-        elif action==2:
-            if(quant > self.total_stock):
                 return False
 
         return True
