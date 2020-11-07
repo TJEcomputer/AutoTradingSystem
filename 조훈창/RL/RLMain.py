@@ -12,18 +12,18 @@ pre = DataPreProcessing.DataPreProcessing()
 logging = log_recorder.Log().dir_recorder('RL','Main')
 Test = RLtest.TestEnv()
 code = 'A035720'
-print(f'{code} 학습을 시작합니다.')
+logging.info(f'{code} 학습을 시작합니다.')
 
 df = pre.change_csv(code,category='d')
-print(f'데이터셉 분리 학습을 시작합니다.')
+logging.info(f'데이터셉 분리 학습을 시작합니다.')
 df_train,df_test,df_prev = pre.train_test_split(code,category='d')
 
 step = len(df_train)
-print(f'한 학습당 step : {step}')
+logging.info(f'한 학습당 step : {step}')
 #step = 10
-print(f'학습 환경 구성')
+logging.info(f'학습 환경 구성')
 env = RLEnvTrain.RLEnv(df_train)
-print(f'학습 에이전트 구성')
+logging.info(f'학습 에이전트 구성')
 agent = RLAgent.Agent(gamma = 0.98,
                       eps_start = 0.8,
                       eps_end=0.01,
@@ -43,7 +43,7 @@ action_List = []
 quant_list =[]
 re_list =[]
 stock_cnt_list = []
-print('학습 시작')
+logging.info('학습 시작')
 for k in range(100):
     # 학습 날짜 시간 디렉토리
     now = datetime.now()
@@ -51,7 +51,7 @@ for k in range(100):
     if not os.path.isdir('.\\reward\\re_'+now+'\\'):
         os.mkdir('.\\reward\\re_'+now+'\\')
     obs = env.reset()
-    agent.reset()
+    agent.reset() # 학습 리스트 리셋
     sub_action_list = []
     sub_quant_list=[]
     sub_re_list = []
@@ -119,9 +119,9 @@ for k in range(100):
     action_List.append(sub_action_list)
     quant_list.append(sub_quant_list)
     reward_list.append(env.reward)
-    print(np.round(env.reward,4))
-    print(f'다음 데이터가 없습니다. {k}번째 에피소드가 끝났습니다.')
-    print('------------')
+    logging.info(np.round(env.reward,4))
+    logging.info(f'다음 데이터가 없습니다. {k+1}번째 에피소드가 끝났습니다.')
+    logging.info('------------')
 
 
 df_reward = pd.DataFrame(reward_list)
@@ -135,10 +135,10 @@ df_reward.to_csv('.\\reward\\re_'+now+'\\reward_'+str(now)+'.csv',index=False)
 df_action.to_csv('.\\reward\\re_'+now+'\\action_'+str(now)+'.csv',index=False)
 df_quant.to_csv('.\\reward\\re_'+now+'\\quant_'+str(now)+'.csv',index=False)
 df_stock_cnt.to_csv('.\\reward\\re_'+now+'\\stock_cnt_'+str(now)+'.csv',index=False)
-print('학습 끝')
+logging.info('학습 끝')
 # 테스트 시작
 
-print('테스트 시작')
+logging.info('테스트 시작')
 Test.test(code)
-print('테스트 끝')
+logging.info('테스트 끝')
 
