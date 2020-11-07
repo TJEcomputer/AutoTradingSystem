@@ -4,7 +4,8 @@ import time
 import os
 
 class Log:
-    def __init__(self):
+    def __init__(self,name):
+        self.name = name
         self.start = time.time()
         dir = ['full','DL','ML','RL','API']
         for i in dir:
@@ -13,14 +14,15 @@ class Log:
                 os.makedirs(path+i)
     def dir_recorder(self,name=None):
         dt = datetime.datetime.now()
+        loggername=self.name
         nowdate = dt.strftime('%Y%m%d')
         path = '.\\log\\full\\'
-        if name is not None:
+        if path is not None:
             path = '.\\log\\' + name +'\\'
         log_filename='{}.log'.format(nowdate)
         full_path = path + log_filename
 
-        logger_dir = logging.getLogger(name)
+        logger_dir = logging.getLogger(loggername)
         logger_dir.setLevel(logging.INFO)
         formatter = logging.Formatter("%(asctime)s : %(message)s ", "%Y-%m-%d %H:%M:%S")
 
@@ -56,6 +58,10 @@ class Log:
     def RL_recorder(self,text):
         log_full = self.dir_recorder('full')
         log_dir = self.dir_recorder('RL')
-        log_full.info(text)
-        log_dir.info(text)
+        end = time.time()
+        min = int((end - self.start) // 60)
+        sec = int((end - self.start) % 60)
+        msg = f'진행 시간 - {str(min).zfill(2)}:{str(sec).zfill(2)} | {text} '
+        log_full.info(msg)
+        log_dir.info(msg)
 

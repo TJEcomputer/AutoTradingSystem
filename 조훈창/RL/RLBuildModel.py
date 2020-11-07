@@ -9,7 +9,7 @@ class Models:
         self.input_num = 30
         self.step_num = 1
 
-    def build_model(self,input_num=30,step_num=1,code = 'DA000020',nn=None,path = f'.\\model\\DNN\\value\\',category='value',activation='sigmoid',kernel_initializer='random_normal',trainable = True):
+    def build_model(self,input_num=31,step_num=1,code = 'A000020',nn=None,path = f'.\\model\\DNN\\value\\',category='value',activation='sigmoid',kernel_initializer='random_normal',trainable = True):
         if not os.path.exists(path):
             os.makedirs(path)
 
