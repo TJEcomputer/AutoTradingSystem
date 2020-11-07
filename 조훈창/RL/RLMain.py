@@ -9,15 +9,21 @@ import log_recorder
 import DataPreProcessing
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 pre = DataPreProcessing.DataPreProcessing()
-logging = log_recorder.Log('RLmain')
+logging = log_recorder.Log().dir_recorder('RL','Main')
 Test = RLtest.TestEnv()
 code = 'A035720'
+print(f'{code} 학습을 시작합니다.')
+
 df = pre.change_csv(code,category='d')
+print(f'데이터셉 분리 학습을 시작합니다.')
 df_train,df_test,df_prev = pre.train_test_split(code,category='d')
 
 step = len(df_train)
+print(f'한 학습당 step : {step}')
 #step = 10
+print(f'학습 환경 구성')
 env = RLEnvTrain.RLEnv(df_train)
+print(f'학습 에이전트 구성')
 agent = RLAgent.Agent(gamma = 0.98,
                       eps_start = 0.8,
                       eps_end=0.01,

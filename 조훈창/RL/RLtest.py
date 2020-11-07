@@ -14,7 +14,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class TestEnv:
     def __init__(self):
-        self.logging = log_recorder.Log('RLtest')
+        self.logging = log_recorder.Log()
         self.prev = None
         self.pre = DataPreProcessing.DataPreProcessing()
 
