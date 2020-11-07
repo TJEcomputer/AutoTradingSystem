@@ -10,7 +10,7 @@ class DataPreProcessing:
         # 필요 변수 선언
         self.name = 'DataPreProcessing'
         self.path = path
-        self.logging = log_recorder.Log()
+        self.logging = log_recorder.Log('DataProcess')
 
         # DataPreProcessing 클래스 객체 생성시 필요한 폴더 생성
         self.mkdir = self.make_dir(path)
@@ -40,6 +40,7 @@ class DataPreProcessing:
         df_stock_ch.reset_index(inplace=True)
         df_stock_ch.drop(['index'],axis=1,inplace=True)
         df_stock_ch['profit'] = 0
+        df_stock_ch['cash'] = 0
         df_stock_ch['volume'].replace(0, method='ffill', inplace=True)
         save_path = path + code +'_ch.csv'
         df_stock_ch.to_csv(save_path,index=False)
@@ -85,19 +86,25 @@ class DataPreProcessing:
         df_bean = pd.DataFrame(datetime,columns=['date','time'])
         return df_bean
 
-    def train_test_split(self,code,day=252,year=1,test_len=4,category='d'):
+    def train_test_split(self,code,day=252,year=1,test_len=4,category='d',sel=None):
         if category == 'm':
             day = day * 390
         df = self.change_csv(code, category=category)
-        df_obs = df.iloc[119:, :].copy()
-        df_obs = df_obs.reset_index()
-        df_obs = df_obs.drop(['index'], axis=1)
-        df_train = df_obs.iloc[-1*day*(year*test_len):-1*day*year].copy()
+        df_prev = df.iloc[-1*day*(year*test_len) - 120:-1*day*(year*test_len),:].copy()
+
+        df_prev.reset_index(drop=True,inplace=True)
+        df_train = df.iloc[-1*day*(year*test_len):-1*day*year].copy()
+
         df_train.reset_index(drop=True,inplace=True)
-        print(df_train)
-        df_test = df_obs.iloc[-1*day*year:].copy()
+        df_test = df.iloc[-1*day*year:].copy()
+
         df_test.reset_index(drop=True,inplace=True)
-        return df_train,df_test
+        if sel == None:
+
+            return df_train,df_test,df_prev
+        if sel =='prev':
+            return df_prev
+
 
     def add_feature(self,df):
 

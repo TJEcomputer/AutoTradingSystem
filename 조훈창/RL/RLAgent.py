@@ -18,7 +18,8 @@ class Agent:
                  code='DA000020',
                  V_nn='DNN',
                  P_nn='CNN',
-                 method='A2C'):
+                 method='A2C',
+                 feature_num=31):
         self.gamma = gamma
         self.code = code
         self.V_nn = V_nn
@@ -32,6 +33,13 @@ class Agent:
         self.sell = 2
 
         self.action_list = [self.hold, self.buy, self.sell]
+        # utility
+        self.train = True
+        self.idx = tf.range(batch_size)
+        self.tau = tau
+        self.input_shape = feature_num
+        self.step_shape = 1
+        self.feature_num = feature_num
 
         # policy
         self.eps = eps_start
@@ -60,12 +68,7 @@ class Agent:
         self.Q_value_loss_list = []
         self.policy_loss_list = []
 
-        # utility
-        self.train = True
-        self.idx = tf.range(batch_size)
-        self.tau = tau
-        self.input_shape = 30
-        self.step_shape = 1
+
 
     def reset(self):
         self.experience = deque([], maxlen=self.replay_capacity)
@@ -75,8 +78,8 @@ class Agent:
         Q_model = None
         Q_model_target = None
         if method == 'A2C' or method == 'Value':
-            Q_model = models.build_model(input_num=30,code = self.code, nn=V_nn,path = self.V_path,category='value' ,activation='linear')
-            Q_model_target = models.build_model(input_num=30,code = self.code, nn=self.V_nn,path = self.V_path,category='value', activation='linear', trainable=False)
+            Q_model = models.build_model(input_num=self.feature_num,code = self.code, nn=V_nn,path = self.V_path,category='value' ,activation='linear')
+            Q_model_target = models.build_model(input_num=self.feature_num,code = self.code, nn=self.V_nn,path = self.V_path,category='value', activation='linear', trainable=False)
         return Q_model, Q_model_target
 
     def create_P_model(self, method, P_nn):
@@ -84,8 +87,8 @@ class Agent:
         P_model = None
         P_model_target = None
         if method == 'A2C' or method == 'policy':
-            P_model = models.build_model(input_num=30,code = self.code, nn=P_nn,path = self.P_path,category='policy', activation='sigmoid')
-            P_model_target = models.build_model(input_num=30,code = self.code, nn=P_nn,path = self.P_path,category='policy', activation='sigmoid', trainable=False)
+            P_model = models.build_model(input_num=self.feature_num,code = self.code, nn=P_nn,path = self.P_path,category='policy', activation='sigmoid')
+            P_model_target = models.build_model(input_num=self.feature_num,code = self.code, nn=P_nn,path = self.P_path,category='policy', activation='sigmoid', trainable=False)
         return P_model, P_model_target
 
     def predict_action_per(self, obs):
@@ -139,7 +142,6 @@ class Agent:
     def experience_replay(self):
         if self.batch_size > len(self.experience):
             return
-        print('훈련 시작')
         minibatch = map(np.array, zip(*sample(self.experience, self.batch_size)))
         obs, action, reward, next_obs, not_done, value_per, policy_per = minibatch
 
@@ -219,9 +221,9 @@ class Agent:
         # 매도 매수 주문 수량의 최대 크기 최소 크기를 정해 놓는 방법
         quant = init_cash // cu_price
         if policy_per is not None:
-            quant = quant * policy_per[action]
+            quant = int(quant * policy_per[action])
         elif value_per is not None:
-            quant = quant * self.sigmoid(value_per[action])
+            quant = int(quant * self.sigmoid(value_per[action]))
         return quant
 
     def sigmoid(self, x):

@@ -29,6 +29,7 @@ class RLEnv:
         if self.iloc < len(self.df):
             obs = self.df.iloc[self.iloc].values
             obs[9] = self.reward
+            obs[10] = self.cash
         return obs
 
     def next_step(self,action,quant):
@@ -38,9 +39,6 @@ class RLEnv:
 
         done = False
 
-        if self.iloc+1 >= len(self.df):
-            done = True
-
         if action == 0:
             self.stock_list.append([0,0])
            # print('Hold',reward)
@@ -49,13 +47,13 @@ class RLEnv:
             self.total_stock += quant
             self.stock_list.append([quant, cu_price])
             profit_charged = self.profit(action,cu_price, quant)
-            self.cash -= profit_charged
+            self.cash -= int(profit_charged)
 
         if action == 2:
             self.total_stock += -1 * quant
             self.stock_list.append([-1 * quant, cu_price])
             profit_charged = self.profit(action,cu_price, quant)
-            self.cash += profit_charged
+            self.cash += int(profit_charged)
 
         portfolio = self.cash + cu_price * self.total_stock
         self.reward = (portfolio - self.init_cash) / self.init_cash * 100
@@ -63,16 +61,22 @@ class RLEnv:
         # 리워드 어떻게 줄지
         self.iloc += 1
         next_obs = self.obs()
+        if next_obs is None:
+            done = True
         info = None
         return next_obs,self.reward,done,info
 
 
     def validation_(self,action,quant,price):
-        profit_charged = self.profit(action,price,quant)
-        if action==1 and  (profit_charged > self.cash or quant <=0):
+        profit_charged = int(self.profit(action,price,quant))
+        if quant <=0:
             return False
-        elif action==2 and (quant > self.total_stock or quant <=0):
-            return False
+        if action==1:
+            if (profit_charged > self.cash):
+                return False
+        elif action==2:
+            if(quant > self.total_stock):
+                return False
 
         return True
 
