@@ -9,7 +9,7 @@ class Models:
         self.input_num = 30
         self.step_num = 1
 
-    def build_model(self,input_num=31,step_num=1,code = 'A000020',nn=None,path = f'.\\model\\DNN\\value\\',category='value',activation='sigmoid',kernel_initializer='random_normal',trainable = True):
+    def build_model(self,input_num=31,step_num=1,code = 'A000020',nn=None,path = f'.\\model\\DNN\\value\\',category='value',activation='sigmoid',kernel_initializer='random_normal',trainable = True,tick='d'):
         if not os.path.exists(path):
             os.makedirs(path)
 
@@ -25,9 +25,15 @@ class Models:
                 output =keras.layers.Dense(3, activation=activation,kernel_initializer=kernel_initializer, trainable=trainable)(output)
                 model = keras.Model(inputs=[Input], outputs=[output])
                 model.compile(loss='mean_squared_error',optimizer=keras.optimizers.SGD(lr=0.00001))
-                model.save(path + f'{code}.h5')
+                if tick == 'm':
+                    model.save(path + f'{code}_m.h5')
+                if tick == 'd':
+                    model.save(path + f'{code}.h5')
+
             else:
                 model = keras.models.load_model(path + f'{code}.h5')
+                if tick == 'm':
+                    model = keras.models.load_model(path + f'{code}_m.h5')
             return model
         if nn =='LSTM':
             if not os.path.isfile(path + f'{code}.h5'):
@@ -41,9 +47,15 @@ class Models:
                 output = keras.layers.Dense(3 ,activation=activation,kernel_initializer='random_normal',trainable=trainable)(output)
                 model = keras.Model(inputs=[Input],outputs=[output])
                 model.compile(loss='mean_squared_error', optimizer=keras.optimizers.SGD(lr=0.01))
-                model.save(path + f'{code}.h5')
+                if tick == 'm':
+                    model.save(path + f'{code}_m.h5')
+                if tick == 'd':
+                    model.save(path + f'{code}.h5')
+
             else:
                 model = keras.models.load_model(path + f'{code}.h5')
+                if tick == 'm':
+                    model = keras.models.load_model(path + f'{code}_m.h5')
             return model
         if nn =='CNN':
             if not os.path.isfile(path + f'{code}.h5'):
@@ -61,8 +73,14 @@ class Models:
                 output = keras.layers.Dense(3,activation=activation)(output)
                 model = keras.Model(inputs=[Input],outputs=[output])
                 model.compile(loss='mse', optimizer=keras.optimizers.Adam(lr=0.01))
-                model.save(path + f'{code}.h5')
+                if tick=='m':
+                    model.save(path + f'{code}_m.h5')
+                if tick == 'd':
+                    model.save(path + f'{code}.h5')
+
             else:
                 model = keras.models.load_model(path + f'{code}.h5')
+                if tick =='m':
+                    model = keras.models.load_model(path + f'{code}_m.h5')
             return model
 

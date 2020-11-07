@@ -15,7 +15,6 @@ code = 'A035720'
 df = pre.change_csv(code,category='d')
 df_train,df_test,df_prev = pre.train_test_split(code,category='d')
 
-
 step = len(df_train)
 #step = 10
 env = RLEnvTrain.RLEnv(df_train)
@@ -30,7 +29,8 @@ agent = RLAgent.Agent(gamma = 0.98,
                       code = code,
                       V_nn='DNN',
                       P_nn = 'CNN',
-                      method='A2C') #policy value A2C
+                      method='A2C',
+                      tick='d') #policy value A2C
 
 reward_list = []
 action_List = []
@@ -56,7 +56,7 @@ for k in range(100):
     data = pd.DataFrame(data, columns=df.columns)
     df_prev = pd.concat([df_prev, data], ignore_index=True)
     obs = pre.add_feature(df_prev)
-    for i in tqdm(range(step-1)):
+    for i in tqdm(range(step)):
         # 관측 데이터로 예측한 가치신경망, 정책 신경망 예측값
         value_per, policy_per = agent.predict_action_per(obs)
         
