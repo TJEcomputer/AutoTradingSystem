@@ -86,17 +86,17 @@ class DataPreProcessing:
         df_bean = pd.DataFrame(datetime,columns=['date','time'])
         return df_bean
 
-    def train_test_split(self,code,day=252,year=1,test_len=4,category='d',sel=None):
+    def train_test_split(self,code,day=252,year=1,test_year=1,full_year =5,category='d',sel=None):
         if category == 'm':
             day = day * 390
         df = self.change_csv(code, category=category)
-        df_prev = df.iloc[-1*day*(year*test_len) - 120:-1*day*(year*test_len),:].copy()
+        df_prev = df.iloc[-1*day*(year*full_year) - 120:-1*day*(year*full_year),:].copy()
 
         df_prev.reset_index(drop=True,inplace=True)
-        df_train = df.iloc[-1*day*(year*test_len):-1*day*year].copy()
+        df_train = df.iloc[-1*day*(year*full_year):-1*day*year*test_year].copy()
 
         df_train.reset_index(drop=True,inplace=True)
-        df_test = df.iloc[-1*day*year:].copy()
+        df_test = df.iloc[-1*day*year*test_year:].copy()
 
         df_test.reset_index(drop=True,inplace=True)
         if sel == None:

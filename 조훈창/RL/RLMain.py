@@ -15,7 +15,6 @@ code = 'A035720'
 df = pre.change_csv(code,category='d')
 df_train,df_test,df_prev = pre.train_test_split(code,category='d')
 
-
 step = len(df_train)
 #step = 10
 env = RLEnvTrain.RLEnv(df_train)
