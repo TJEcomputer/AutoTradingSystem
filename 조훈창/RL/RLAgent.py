@@ -216,7 +216,6 @@ class Agent:
 
 
     def decide_quant(self, action, value_per, policy_per,init_cash,cu_price):
-
         # 매도 매수 주문 수량의 최대 크기 최소 크기를 정해 놓는 방법
         quant = init_cash // cu_price
         if policy_per is not None:
