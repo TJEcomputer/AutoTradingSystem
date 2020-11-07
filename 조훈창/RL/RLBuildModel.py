@@ -4,15 +4,10 @@ from sklearn.preprocessing import Normalizer
 from tensorflow import keras
 
 class Models:
+
     def __init__(self):
-        #self.code = code
-        #self.nn = nn
         self.input_num = 30
         self.step_num = 1
-        #self.path = path
-        #self.method = category
-        #self.model = self.build_model(trainable,activation,kernel_initializer)
-
 
     def build_model(self,input_num=30,step_num=1,code = 'DA000020',nn=None,path = f'.\\model\\DNN\\value\\',category='value',activation='sigmoid',kernel_initializer='random_normal',trainable = True):
         if not os.path.exists(path):

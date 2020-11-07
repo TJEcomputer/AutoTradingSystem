@@ -1,36 +1,31 @@
 import os
-import test
 import pandas as pd
 import numpy as np
 import RLEnvTrain,RLAgent
 from tqdm import tqdm
 from datetime import datetime
+import DataPreProcessing
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
-code = 'DA000040'
-df = pd.read_csv(f'.\\DB\\CSV\\daily\\{code}_ch.csv')
-df['profit'] = 0
-df['volume'].replace(0,method='ffill',inplace=True)
-
-df_obs = df.iloc[119:int(len(df)*0.8),:].copy()
-df_obs = df_obs.reset_index()
-df_obs = df_obs.drop(['index'],axis =1)
+pre = DataPreProcessing.DataPreProcessing()
+code = 'A035720'
+df = pre.change_csv(code,category='d')
+df_train,df_test = pre.train_test_split(code,category='d')
 
 
-step = int((len(df_obs) * 0.5))
-env = RLEnvTrain.RLEnv(df_obs)
+step = len(df_train)
+env = RLEnvTrain.RLEnv(df_train)
 agent = RLAgent.Agent(gamma = 0.98,
                       eps_start = 0.8,
                       eps_end=0.01,
                       eps_decay_steps = 800,
                       eps_exponential_decay = 0.99,
                       replay_capacity = int(1e6),
-                      batch_size=step,
-                      tau = 2,
+                      batch_size=step-1,
+                      tau = 10,
                       code = code,
                       V_nn='DNN',
                       P_nn = 'CNN',
-                      method='A2C')
+                      method='A2C') #policy value A2C
 
 reward_list = []
 action_List = []
@@ -54,7 +49,7 @@ for k in range(100):
     data = obs.reshape(1, -1)
     data = pd.DataFrame(data, columns=df.columns)
     df_prev = pd.concat([df_prev, data], ignore_index=True)
-    obs = test.add_feature(df_prev)
+    obs = pre.add_feature(df_prev)
     #for i in tqdm(range(int(len(df_obs)*0.8))):
     for i in tqdm(range(step)):
 
@@ -80,11 +75,12 @@ for k in range(100):
 
 
         next_obs, reward, done, info = env.next_step(action, quant)
-
+        if done:
+            break
         data = next_obs.reshape(1, -1)
         data = pd.DataFrame(data, columns=df_prev.columns)
         df_prev = pd.concat([df_prev, data], ignore_index=True)
-        next_obs = test.add_feature(df_prev)
+        next_obs = pre.add_feature(df_prev)
 
         #
         agent.memorize_transition(obs,action,reward,next_obs,0.0 if done else 1.0,value_per, policy_per)
@@ -97,8 +93,7 @@ for k in range(100):
         sub_quant_list.append(quant)
         obs = next_obs
 
-        if done:
-            break
+
 
 
     # experience 초기화

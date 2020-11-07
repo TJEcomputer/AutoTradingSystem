@@ -38,7 +38,7 @@ class RLEnv:
 
         done = False
 
-        if self.iloc +1 >= len(self.df):
+        if self.iloc+1 >= len(self.df):
             done = True
 
         if action == 0:
