@@ -88,7 +88,10 @@ class DataPreProcessing:
 
     def train_test_split(self,code,day=252,year=1,test_year=1,full_year =5,category='d',sel=None):
         if category == 'm':
+            day = 30
             day = day * 390
+            test_year = 1
+            full_year =3
         df = self.change_csv(code, category=category)
         df_prev = df.iloc[-1*day*(year*full_year) - 120:-1*day*(year*full_year),:].copy()
 

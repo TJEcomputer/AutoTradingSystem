@@ -19,7 +19,8 @@ class Agent:
                  V_nn='DNN',
                  P_nn='CNN',
                  method='A2C',
-                 feature_num=31):
+                 feature_num=31,
+                 tick='d'):
         self.gamma = gamma
         self.code = code
         self.V_nn = V_nn
@@ -40,6 +41,7 @@ class Agent:
         self.input_shape = feature_num
         self.step_shape = 1
         self.feature_num = feature_num
+        self.tick = tick
 
         # policy
         self.eps = eps_start
@@ -78,8 +80,8 @@ class Agent:
         Q_model = None
         Q_model_target = None
         if method == 'A2C' or method == 'Value':
-            Q_model = models.build_model(input_num=self.feature_num,code = self.code, nn=V_nn,path = self.V_path,category='value' ,activation='linear')
-            Q_model_target = models.build_model(input_num=self.feature_num,code = self.code, nn=self.V_nn,path = self.V_path,category='value', activation='linear', trainable=False)
+            Q_model = models.build_model(input_num=self.feature_num,code = self.code, nn=V_nn,path = self.V_path,category='value' ,activation='linear',tick=self.tick)
+            Q_model_target = models.build_model(input_num=self.feature_num,code = self.code, nn=self.V_nn,path = self.V_path,category='value', activation='linear', trainable=False,tick=self.tick)
         return Q_model, Q_model_target
 
     def create_P_model(self, method, P_nn):
@@ -87,8 +89,8 @@ class Agent:
         P_model = None
         P_model_target = None
         if method == 'A2C' or method == 'policy':
-            P_model = models.build_model(input_num=self.feature_num,code = self.code, nn=P_nn,path = self.P_path,category='policy', activation='sigmoid')
-            P_model_target = models.build_model(input_num=self.feature_num,code = self.code, nn=P_nn,path = self.P_path,category='policy', activation='sigmoid', trainable=False)
+            P_model = models.build_model(input_num=self.feature_num,code = self.code, nn=P_nn,path = self.P_path,category='policy', activation='sigmoid',tick=self.tick)
+            P_model_target = models.build_model(input_num=self.feature_num,code = self.code, nn=P_nn,path = self.P_path,category='policy', activation='sigmoid', trainable=False,tick=self.tick)
         return P_model, P_model_target
 
     def predict_action_per(self, obs):
@@ -149,31 +151,43 @@ class Agent:
             Q_value_loss, policy_loss = self.A2C(obs,action,reward,next_obs,not_done,value_per,policy_per)
             self.Q_value_loss_list.append(Q_value_loss)
             self.policy_loss_list.append(policy_loss)
-            self.Q_model.save(self.V_path + f'{self.code}.h5')
-            self.Q_model.save_weights(self.V_path + f'{self.code}_weight.h5')
+            filename = self.code
+            if self.tick=='m':
+                filename = self.code +'_m.h5'
+            self.Q_model.save(self.V_path + f'{filename}.h5')
+            self.Q_model.save_weights(self.V_path + f'{filename}_weight.h5')
             self.P_model.save(self.P_path + f'{self.code}.h5')
-            self.P_model.save_weights(self.P_path + f'{self.code}_weight.h5')
+            self.P_model.save_weights(self.P_path + f'{filename}_weight.h5')
 
         if self.method == 'ActorCritic':
             Q_value_loss, policy_loss = self.ActorCritic(obs,action,reward,next_obs,not_done,value_per,policy_per)
             self.Q_value_loss_list.append(Q_value_loss)
             self.policy_loss_list.append(policy_loss)
-            self.Q_model.save(self.V_path + f'{self.code}.h5')
-            self.Q_model.save_weights(self.V_path + f'{self.code}_weight.h5')
+            filename = self.code
+            if self.tick == 'm':
+                filename = self.code + '_m.h5'
+            self.Q_model.save(self.V_path + f'{filename}.h5')
+            self.Q_model.save_weights(self.V_path + f'{filename}_weight.h5')
             self.P_model.save(self.P_path + f'{self.code}.h5')
-            self.P_model.save_weights(self.P_path + f'{self.code}_weight.h5')
+            self.P_model.save_weights(self.P_path + f'{filename}_weight.h5')
 
         if self.method == 'value':
             Q_value_loss = self.Q_value(obs,action,reward,next_obs,not_done)
             self.Q_value_loss_list.append(Q_value_loss)
-            self.Q_model.save(self.V_path + f'{self.code}.h5')
-            self.Q_model.save_weights(self.V_path + f'{self.code}_weight.h5')
+            filename = self.code
+            if self.tick == 'm':
+                filename = self.code + '_m.h5'
+            self.Q_model.save(self.V_path + f'{filename}.h5')
+            self.Q_model.save_weights(self.V_path + f'{filename}_weight.h5')
 
         if self.method == 'policy':
             policy_loss = self.Policy_gradient(obs,action,reward,policy_per)
             self.policy_loss_list.append(policy_loss)
+            filename = self.code
+            if self.tick == 'm':
+                filename = self.code + '_m.h5'
             self.P_model.save(self.P_path + f'{self.code}.h5')
-            self.P_model.save_weights(self.P_path + f'{self.code}_weight.h5')
+            self.P_model.save_weights(self.P_path + f'{filename}_weight.h5')
         if self.total_steps % self.tau == 0:
             self.update_target()
 
