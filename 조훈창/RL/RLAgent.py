@@ -141,11 +141,14 @@ class Agent:
             self.episode_reward, self.episode_length = 0, 0
         self.experience.append((obs, action, reward, next_obs, not_done, value_per, policy_per))
 
-    def experience_replay(self):
-        if self.batch_size > len(self.experience):
+    def experience_replay(self,position=None):
+        if position !='last' and self.batch_size > len(self.experience):
             return
-
-        minibatch = map(np.array, zip(*sample(self.experience, self.batch_size)))
+        sampling_size = self.batch_size
+        if position == 'last':
+            sampling_size = len(self.experience) -1
+            self.idx= tf.range(sampling_size)
+        minibatch = map(np.array, zip(*sample(self.experience, sampling_size)))
         obs, action, reward, next_obs, not_done, value_per, policy_per = minibatch
 
         if self.method == 'A2C':
