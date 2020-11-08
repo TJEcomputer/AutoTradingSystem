@@ -12,9 +12,11 @@ class Models:
     def build_model(self,input_num=31,step_num=1,code = 'A000020',nn=None,path = f'.\\model\\DNN\\value\\',category='value',activation='sigmoid',kernel_initializer='random_normal',trainable = True,tick='d'):
         if not os.path.exists(path):
             os.makedirs(path)
-
+        filename = f'{code}.h5'
+        if tick == 'm':
+            filename = f'{code}_m.h5'
         if nn == 'DNN':
-            if not os.path.isfile(path + f'{code}.h5'):
+            if not os.path.isfile(path + filename):
                 Input = keras.layers.Input(shape=(input_num,))
                 output = keras.layers.Dense(256, activation='sigmoid',kernel_initializer=kernel_initializer, trainable=trainable)(Input)
                 output = keras.layers.Dropout(0.01)(output)
@@ -36,7 +38,7 @@ class Models:
                     model = keras.models.load_model(path + f'{code}_m.h5')
             return model
         if nn =='LSTM':
-            if not os.path.isfile(path + f'{code}.h5'):
+            if not os.path.isfile(path + filename):
                 Input = keras.layers.Input(shape=(step_num,input_num))
                 output = keras.layers.LSTM(256,dropout=0.1,stateful=False,return_sequences=True,  kernel_initializer='random_normal',trainable=trainable)(Input)
                 output = keras.layers.BatchNormalization()(output)
@@ -58,7 +60,7 @@ class Models:
                     model = keras.models.load_model(path + f'{code}_m.h5')
             return model
         if nn =='CNN':
-            if not os.path.isfile(path + f'{code}.h5'):
+            if not os.path.isfile(path + filename):
                 Input = keras.layers.Input(shape=(step_num,input_num,1))
                 output = keras.layers.Conv2D(256,kernel_size=(1,5),padding='same',activation='sigmoid',kernel_initializer='random_normal')(Input)
                 output = keras.layers.BatchNormalization()(output)

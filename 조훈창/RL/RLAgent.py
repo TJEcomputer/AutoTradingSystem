@@ -144,6 +144,7 @@ class Agent:
     def experience_replay(self):
         if self.batch_size > len(self.experience):
             return
+
         minibatch = map(np.array, zip(*sample(self.experience, self.batch_size)))
         obs, action, reward, next_obs, not_done, value_per, policy_per = minibatch
 
@@ -186,7 +187,7 @@ class Agent:
             filename = self.code
             if self.tick == 'm':
                 filename = self.code + '_m.h5'
-            self.P_model.save(self.P_path + f'{self.code}.h5')
+            self.P_model.save(self.P_path + f'{filename}.h5')
             self.P_model.save_weights(self.P_path + f'{filename}_weight.h5')
         if self.total_steps % self.tau == 0:
             self.update_target()
