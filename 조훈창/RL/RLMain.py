@@ -14,9 +14,9 @@ Test = RLtest.TestEnv()
 code = 'A035720'
 logging.info(f'{code} 학습을 시작합니다.')
 
-df = pre.change_csv(code,category='d')
+df = pre.change_csv(code,category='m')
 logging.info(f'데이터셉 분리 학습을 시작합니다.')
-df_train,df_test,df_prev = pre.train_test_split(code,category='d')
+df_train,df_test,df_prev = pre.train_test_split(code,category='m')
 
 step = len(df_train)
 logging.info(f'한 학습당 step : {step}')
@@ -36,7 +36,7 @@ agent = RLAgent.Agent(gamma = 0.98,
                       V_nn='DNN',
                       P_nn = 'CNN',
                       method='A2C',
-                      tick='d') #policy value A2C
+                     tick='m') #policy value A2C
 
 reward_list = []
 action_List = []
@@ -44,7 +44,7 @@ quant_list =[]
 re_list =[]
 stock_cnt_list = []
 logging.info('학습 시작')
-for k in range(100):
+for k in range(10):
     # 학습 날짜 시간 디렉토리
     now = datetime.now()
     now = now.strftime('%Y%m%d')
@@ -78,9 +78,8 @@ for k in range(100):
 
 
         # 매도 매수 가능 한 경우 확인
-        if not env.validation_(action, quant, cu_price):
-            action = 0
-            quant = 0
+        action,quant =  env.validation_(action, quant, cu_price,stock_cnt)
+
 
 
 
@@ -96,6 +95,7 @@ for k in range(100):
 
         agent.memorize_transition(obs,action,reward,next_obs,0.0 if done else 1.0,value_per, policy_per)
         #if agent.train:
+
         agent.experience_replay()
 
         sub_stock_cnt.append(stock_cnt)

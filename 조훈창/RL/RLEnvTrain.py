@@ -50,8 +50,7 @@ class RLEnv:
             self.cash -= int(profit_charged)
 
         if action == 2:
-            if quant > self.total_stock:
-                quant = self.total_stock
+
             self.total_stock += -1 * quant
             self.stock_list.append([-1 * quant, cu_price])
             profit_charged = self.profit(action,cu_price, quant)
@@ -59,6 +58,8 @@ class RLEnv:
 
         portfolio = self.cash + cu_price * self.total_stock
         self.reward = (portfolio - self.init_cash) / self.init_cash * 100
+        if action == 0 and self.total_stock==0:
+            self.reward = 0
         self.profit_list.append(self.reward)
         # 리워드 어떻게 줄지
         self.iloc += 1
@@ -69,15 +70,21 @@ class RLEnv:
         return next_obs,self.reward,done,info
 
 
-    def validation_(self,action,quant,price):
+    def validation_(self,action,quant,price,stock_cnt):
         profit_charged = int(self.profit(action,price,quant))
         if quant <=0:
-            return False
+            action =0
+            quant =0
         if action==1:
             if (profit_charged > self.cash):
-                return False
-
-        return True
+                action = 0
+                quant = 0
+        if action ==2:
+            if quant > stock_cnt:
+                quant = stock_cnt
+                if quant == 0:
+                    action = 0
+        return action,quant
 
     def profit(self,action,cu_price,quant):
         profit = int(cu_price) * quant

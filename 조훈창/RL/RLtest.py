@@ -14,7 +14,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 class TestEnv:
     def __init__(self):
-        self.logging = log_recorder.Log()
+        self.logging = log_recorder.Log().dir_recorder('RL','test')
         self.prev = None
         self.pre = DataPreProcessing.DataPreProcessing()
 
@@ -28,10 +28,10 @@ class TestEnv:
             day = day * 390
         filename = code + '_ch.csv'
         if not os.path.exists(path + filename):
-            print('파일 생성')
+            self.logging.info('파일 생성')
             self.pre.change_csv(code,category=category)
 
-        print('테스트 데이터 분리')
+        self.logging.info('테스트 데이터 분리')
         df = pd.read_csv(path + filename)
         df_test = df.iloc[-1*day*year:]
         df_prev = df.iloc[-1*day*year-120:-1*day*year]
@@ -67,7 +67,7 @@ class TestEnv:
         df_prev = pd.concat([df_prev, data], ignore_index=True)
         obs = self.pre.add_feature(df_prev)
         step = len(df_test)
-        print('테스트 시작')
+        self.logging.info('테스트 시작')
 
         for i in tqdm(range(step)):
             # 관측 데이터로 예측한 가치신경망, 정책 신경망 예측값
@@ -105,13 +105,13 @@ class TestEnv:
         df_quant = pd.DataFrame(quant_list)
         df_stock_cnt = pd.DataFrame(stock_cnt_list)
         if not os.path.exists('.\\Test\\re_' + now):
-            print(f'reward : {reward} | 테스트 끝')
+            self.logging.info(f'reward : {reward} | 테스트 끝')
             os.makedirs('.\\Test\\re_' + now)
         df_reward.to_csv('.\\Test\\re_' + now + '\\reward.csv', index=False)
         df_action.to_csv('.\\Test\\re_' + now + '\\action.csv', index=False)
         df_quant.to_csv('.\\Test\\re_' + now + '\\quant.csv', index=False)
         df_stock_cnt.to_csv('.\\Test\\re_' + now + '\\stock_cnt.csv', index=False)
-        print(f'reward : {reward} | 테스트 끝')
+        self.logging.info(f'reward : {reward} | 테스트 끝')
 
 # if __name__ == '__main__':
 #     T = TestEnv()
