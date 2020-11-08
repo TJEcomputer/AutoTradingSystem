@@ -21,7 +21,7 @@ class TestEnv:
     def set(self,df):
         self.prev = df
 
-    def test(self,code,day=252,year=1,category='d',eps=0.1):
+    def test(self,code,day=252,year=1,category='d',eps=0.05):
         path = '.\\DB\\CSV\\daily\\'
         if category =='m':
             path = '.\\DB\\CSV\\min\\'
@@ -84,9 +84,8 @@ class TestEnv:
 
             # 매도 매수 가능 한 경우 확인
 
-            if not env.validation_(action, quant, cu_price):
-                action = 0
-                quant = 0
+            action,quant =  env.validation_(action, quant, cu_price,stock_cnt)
+
             next_obs, reward, done, info = env.next_step(action, quant)
             if next_obs is not None:
                 data = next_obs.reshape(1, -1)

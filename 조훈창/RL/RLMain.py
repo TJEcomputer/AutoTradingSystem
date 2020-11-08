@@ -14,9 +14,9 @@ Test = RLtest.TestEnv()
 code = 'A035720'
 logging.info(f'{code} 학습을 시작합니다.')
 
-df = pre.change_csv(code,category='m')
+df = pre.change_csv(code,category='d')
 logging.info(f'데이터셉 분리 학습을 시작합니다.')
-df_train,df_test,df_prev = pre.train_test_split(code,category='m')
+df_train,df_test,df_prev = pre.train_test_split(code,category='d')
 
 step = len(df_train)
 logging.info(f'한 학습당 step : {step}')
@@ -36,7 +36,7 @@ agent = RLAgent.Agent(gamma = 0.98,
                       V_nn='DNN',
                       P_nn = 'CNN',
                       method='A2C',
-                     tick='m') #policy value A2C
+                      tick='d') #policy value A2C
 
 reward_list = []
 action_List = []
@@ -96,17 +96,15 @@ for k in range(10):
         agent.memorize_transition(obs,action,reward,next_obs,0.0 if done else 1.0,value_per, policy_per)
         #if agent.train:
 
-        agent.experience_replay()
+        #agent.experience_replay()
 
         sub_stock_cnt.append(stock_cnt)
         sub_re_list.append(reward)
         sub_action_list.append(action)
         sub_quant_list.append(quant)
         obs = next_obs
-
-
-
-
+    logging.info('신경망 학습 시작')
+    agent.experience_replay(position='last')
     # experience 초기화
     #agent.reset()
     # 시각화

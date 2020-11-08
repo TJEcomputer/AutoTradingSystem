@@ -10,14 +10,14 @@ class DataPreProcessing:
         # 필요 변수 선언
         self.name = 'DataPreProcessing'
         self.path = path
-        self.logging = log_recorder.Log()
+        self.logging = log_recorder.Log().dir_recorder('RL','Dataprepro')
 
         # DataPreProcessing 클래스 객체 생성시 필요한 폴더 생성
         self.mkdir = self.make_dir(path)
 
     def change_csv(self,code='A000020',category='d'):
         if code is None:
-            print('변환할 데이터가 없습니다.')
+            self.logging.info('변환할 데이터가 없습니다.')
             return
         load_file = code + '.csv'
         path = '.\\DB\\CSV\\daily\\'

@@ -6,7 +6,7 @@ from tensorflow import keras
 class Models:
 
     def __init__(self):
-        self.input_num = 30
+        self.input_num = 31
         self.step_num = 1
 
     def build_model(self,input_num=31,step_num=1,code = 'A000020',nn=None,path = f'.\\model\\DNN\\value\\',category='value',activation='sigmoid',kernel_initializer='random_normal',trainable = True,tick='d'):
